@@ -3,7 +3,6 @@ const { connection } = require("./db")
 const { userRouter } = require("./routes/user.routes")
 const { authenticate } = require("./middlewares/authenticate.middlewares")
 const cors=require("cors")
-const { taskRouter } = require("./routes/task.routes")
 require('dotenv').config();
 
 const app = express()
@@ -17,7 +16,6 @@ app.get("/", (req, res) => {
 
 app.use("/user", userRouter)
 app.use(authenticate)
-app.use('/tasktime',taskRouter)
 
 app.listen(process.env.Port, async () => {
     try {
